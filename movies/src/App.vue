@@ -1,22 +1,17 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
 import TheHeader from "./components/nav/TheHeader.vue";
-import HomeView from "./components/views/HomeView.vue";
 </script>
 
 <template>
   <the-header></the-header>
-  <router-view></router-view>
+
+  <router-view v-slot="slotProps">
+    <transition name="route" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </router-view>
 </template>
-
-<script>
-components: {
-  TheHeader;
-  HomeView;
-}
-
-export default {};
-</script>
 
 <style>
 @import "../node_modules/primeflex/primeflex.css";
@@ -25,6 +20,23 @@ export default {};
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+}
+
+.route-enter-from,
+.route-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.route-enter-active,
+.route-leave-active {
+  transition: all 0.3s ease;
+}
+
+.route-enter-to,
+.route-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 html {

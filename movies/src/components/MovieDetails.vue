@@ -33,6 +33,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <the-movie v-if="movie" :movie="movie" class="mx-auto"></the-movie>
-  <the-spinner v-else></the-spinner>
+  <div>
+    <the-movie v-if="movie" :movie="movie" class="mx-auto"></the-movie>
+    <the-spinner v-else></the-spinner>
+  </div>
 </template>

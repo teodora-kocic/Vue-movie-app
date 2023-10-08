@@ -10,4 +10,6 @@ app.component("the-modal", TheModal);
 
 app.use(router);
 
-app.mount("#app");
+router.isReady().then(() => {
+  app.mount("#app");
+});

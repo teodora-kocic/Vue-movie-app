@@ -46,14 +46,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1 class="text-center m-3 text-orange-400">All movies</h1>
+  <div>
+    <h1 class="text-center m-3 text-orange-400">All movies</h1>
 
-  <div class="flex align-items-center flex-wrap m-5 justify-content-center">
-    <the-movie
-      v-for="mov in movies"
-      :movie="mov"
-      :movies="movies"
-      @click="seeDetails(mov.id)"
-    ></the-movie>
+    <div class="flex align-items-center flex-wrap m-5 justify-content-center">
+      <the-movie
+        v-for="mov in movies"
+        :movie="mov"
+        :movies="movies"
+        @click="seeDetails(mov.id)"
+      ></the-movie>
+    </div>
   </div>
 </template>
